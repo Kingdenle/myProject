@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #container{
+      width:5vw;
+      height:5vw;
+      border-radius: 50%;
+      position:relative;
+    }
+    .items{
+      background:#ccc;
+      width:1vw;
+      height:1vw;
+      position:absolute;
+      border-radius: 50%;
+    }
+    .active{
+      background:black;
+    }
+    #item0{
+      left:0vw;
+      top:2vw;
+    }
+    #item1{
+      left:0.5vw;
+      top:0.6vw;
+    }
+    #item2{
+      left:2vw;
+      top:0vw;
+    }
+    #item3{
+      left:3.5vw;
+      top:0.6vw;
+    }
+    #item4{
+      left:4vw;
+      top:2vw;
+    }
+    #item5{
+      left:3.5vw;
+      top:3.4vw;
+    }
+    #item6{
+      left:2vw;
+      top:4vw;
+    }
+    #item7{
+      left:0.5vw;
+      top:3.4vw;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="item0" class="items"></div>
+    <div id="item1" class="items"></div>
+    <div id="item2" class="items"></div>
+    <div id="item3" class="items"></div>
+    <div id="item4" class="items"></div>
+    <div id="item5" class="items"></div>
+    <div id="item6" class="items"></div>
+    <div id="item7" class="items"></div>
+  </div>
+  <script>
+    var selected = 0;
+    var oldSelected = 0;
+    window.setInterval(function() {
+      if(selected >= document.querySelectorAll(".items").length - 1){
+        selected = 0;
+      }else {
+        selected++;
+      }
+      document.querySelectorAll(".items")[oldSelected].classList.remove('active');
+      document.querySelectorAll(".items")[selected].classList.add('active');
+      oldSelected = selected;
+    },100)
+  </script>
+</body>
+</html>

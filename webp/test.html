@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #container{
+      width:5vw;
+      height:5vw;
+      border-radius: 50%;
+      position:relative;
+    }
+    .items{
+      background:#ccc;
+      width:1vw;
+      height:1vw;
+      position:absolute;
+      border-radius: 50%;
+    }
+    #item0{
+      left:0vw;
+      top:2vw;
+    }
+    #item1{
+      left:0.5vw;
+      top:0.6vw;
+    }
+    #item2{
+      left:2vw;
+      top:0vw;
+    }
+    #item3{
+      left:3.5vw;
+      top:0.6vw;
+    }
+    #item4{
+      left:4vw;
+      top:2vw;
+    }
+    #item5{
+      left:3.5vw;
+      top:3.4vw;
+    }
+    #item6{
+      left:2vw;
+      top:4vw;
+    }
+    #item7{
+      left:0.5vw;
+      top:3.4vw;
+    }
+    #activeElement{
+      width:1vw;
+      height:1vw;
+      transform:translate(2vw,0vw);
+      background:black;
+      border-radius: 50%;
+      position:absolute;
+      animation: mymove 0.7s infinite;
+      z-index:100;
+    }
+    @keyframes mymove{
+      0% {transform:translate(2vw,0vw);}
+      12.5% {transform:translate(3.5vw,0.6vw);}
+      25% {transform:translate(4vw,2vw);}
+      37.5% {transform:translate(3.5vw,3.4vw);}
+      50% {transform:translate(2vw,4vw);}
+      62.5% {transform:translate(0.5vw,3.4vw);}
+      75% {transform:translate(0vw,2vw);}
+      87.5% {transform:translate(0.5vw,0.6vw);}
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="activeElement"></div>
+    <div id="item0" class="items"></div>
+    <div id="item1" class="items"></div>
+    <div id="item2" class="items"></div>
+    <div id="item3" class="items"></div>
+    <div id="item4" class="items"></div>
+    <div id="item5" class="items"></div>
+    <div id="item6" class="items"></div>
+    <div id="item7" class="items"></div>
+  </div>
+</body>
+</html>

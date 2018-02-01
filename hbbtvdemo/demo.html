@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    body{
+      background-color: white;
+    }
+    #container{
+      width:26vw;
+      height:45vh;
+      position:fixed;
+      left:74vw;
+      top:25vh;
+      font-family: Aileron;
+      color:white;
+      font-size:1.5vw;
+    }
+    #one{
+      position:absolute;
+      width:26vw;
+      height:20vh;
+      background-image: url(images/1.png);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position:0 100%;
+      z-index:1;
+    }
+    #two{
+      position: absolute;
+      height:20vh;
+    }
+    .normal2{
+      top:10vh;
+      width:26vw;
+      background: url(images/2.png) no-repeat;
+      background-size: 100% 100%;
+      z-index:1;
+    }
+    .focus2{
+      top: 11vh;
+      width:28vw;
+      background: url(images/2D.png) no-repeat;
+      background-size: 100% 100%;
+      left:-1.9vw;
+      z-index:10;
+      transition: all 0.2s;
+    }
+    #three{
+      position:absolute;
+      height:20vh;
+    }
+    .normal3{
+      top: 25.6vh;
+      width:26vw;
+      background: url(images/3.png) no-repeat;
+      background-size: 100% 100%;
+      z-index:1;
+    }
+    .focus3{
+      top: 24.9vh;
+      width:28vw;
+      left:-1.9vw;
+      background: url(images/3D.png) no-repeat;
+      background-size: 100% 100%;
+      z-index:10;
+      transition: all 0.2s;
+    }
+    #four{
+      position:absolute;
+      height:20vh;
+    }
+    .normal4{
+      top:41vh;
+      width:26vw;
+      background: url(images/4.png) no-repeat;
+      background-size: 100% 100%;
+      z-index:1;
+    }
+    .focus4{
+      top: 40vh;
+      width:28vw;
+      left:-1.9vw;
+      background: url(images/4D.png) no-repeat;
+      background-size: 100% 100%;
+      z-index:10;
+      transition: all 0.2s;
+    }
+    #icon1{
+      position: absolute;
+      top: 13vh;
+      left: 2vw;
+      font-size:1.3vw;
+    }
+    #icon2{
+      position: absolute;
+      left: 1vw;
+    }
+    .icon2Normal{
+      top: 57%;
+    }
+    .icon2Focus{
+      top: 57%;
+    }
+    #icon3{
+      position: absolute;
+      left: 2vw;
+    }
+    .icon3Normal{
+      top: 40%;
+    }
+    .icon3Focus{
+      top: 40%;
+    }
+    #icon4{
+      position: absolute;
+      left: 2vw;
+    }
+    .icon4Normal{
+      top: 1.2vh;
+    }
+    .icon4Focus{
+      top: 2.2vh;
+    }
+    #topIcons{
+      width: 56vw;
+      height: 17vh;
+      margin-left: 4vw;
+      margin-top: 5vh;
+    }
+    #IBC{
+      background-image: url(images/IBC.png);
+      background-size:100% 100%;
+      background-repeat: no-repeat;
+      width:7vw;
+      height:11vh;
+      display:inline-block;
+    }
+    #IRT{
+      background-image: url(images/IRT.png);
+      background-size:100% 100%;
+      background-repeat: no-repeat;
+      width:10vw;
+      height:11vh;
+      display:inline-block;
+      margin-left:5vw;
+    }
+    #seraphic{
+      background-image: url(images/seraphic.png);
+      background-size:100% 100%;
+      background-repeat: no-repeat;
+      width:20vw;
+      height:11vh;
+      display:inline-block;
+      margin-left:6vw;
+    }
+    #theme{
+      width: 60vw;
+      height: 20vh;
+      margin-top: 45vh;
+    }
+    #colorBlocks{
+      width:2vw;
+      height:20vh;
+      background-color:#1665d0;
+      float:left;
+    }
+    #title{
+      color:#1665d0;
+      font-size: 3.5vw;
+      font-weight:bold;
+      float:left;
+      margin-top: -4vh;
+      margin-left: 2vw;
+    }
+  </style>
+</head>
+<body>
+  <div id="theme">
+    <div id="colorBlocks"></div>
+    <div id="topIcons">
+      <div id="IBC"></div>
+      <div id="IRT"></div>
+      <div id="seraphic"></div>
+    </div>
+    <div id="title">Joint &nbsp HbbTV 2 &nbsp IBC &nbsp Demo</div>
+  </div>
+  <div id="container" tabIndex = 1></div>
+</body>
+<script>
+  var demo = {
+    items : ['one','two','three','four'],
+    value : 1,
+    url: '',
+    $ : function(selector) {
+      return document.querySelector(selector);
+    },
+    $$ : function(selector) {
+      var argsArray = Array.prototype.slice.call(document.querySelectorAll(selector));
+      return argsArray;
+    },
+    initialize : function() {
+      var oldValue = this.value;
+      this.createElement();
+      this.initStyle();
+      this.onFocus(oldValue , this.value);
+    },
+    initStyle : function() {
+      var containerDom = demo.$("#container");
+      var one = demo.$("#one");
+      var two = demo.$("#two");
+      var three = demo.$("#three");
+      var four = demo.$("#four");
+      one.innerHTML = "<div id='icon1'>Companion Screen</div>";
+      two.innerHTML = "<div id='icon2' class='icon2Focus'>Subtitles (EBU-TT-D)</div>";
+      three.innerHTML = "<div id='icon3' class='icon3Normal'>DASH</div>";
+      four.innerHTML = "<div id='icon4' class='icon4Normal'>CSS3 Animations</div>";
+      two.classList.add("focus2");
+      three.classList.add("normal3");
+      four.classList.add("normal4");
+    },
+    changeStyle: function(oldValue , value) {
+      if(oldValue == value) {
+        return;
+      }
+      demo.$("#"+this.items[value]).classList.add("focus" + (value+1));
+      demo.$("#"+this.items[oldValue]).classList.add("normal" + (oldValue+1));
+      demo.$("#"+this.items[oldValue]).classList.remove("focus" + (oldValue+1));
+      demo.$("#"+this.items[value]).classList.remove("normal" + (value+1));
+      demo.$("#"+this.items[value]).style.fontSize = "2vw";
+      demo.$("#"+this.items[oldValue]).style.fontSize = "1.5vw";
+
+      demo.$("#icon"+(value+1)).classList.add("icon"+(value+1)+"Focus");
+      demo.$("#icon"+(value+1)).classList.remove("icon"+(value+1)+"Normal");
+      demo.$("#icon"+(oldValue+1)).classList.add("icon"+(oldValue+1)+"Normal");
+      demo.$("#icon"+(oldValue+1)).classList.remove("icon"+(oldValue+1)+"Focus");
+      if(value == 1) {
+        demo.$("#three").style.top = "25.6vh";
+      } else {
+        demo.$("#three").style.top = "25.4vh";
+      }
+    },
+    createElement : function() {
+      var containerDom = demo.$("#container");
+      for(var i = 0 ; i < this.items.length ; i++) {
+        var itemInContainer = document.createElement("div");
+        itemInContainer.tabIndex = 1;
+        itemInContainer.style.outline = "none";
+        itemInContainer.id = this.items[i];
+        containerDom.appendChild(itemInContainer);
+      }
+    },
+    changeValue : function(keyCode) {
+      var oldValue = this.value;
+
+      switch(keyCode) {
+        case 38 :
+          if(this.value > 1) {
+            this.value--;
+          };
+          this.changeSelected(oldValue , this.value);
+        break;
+        case 40 :
+          if(this.value < this.items.length - 1) {
+            this.value++;
+          }
+          this.changeSelected(oldValue , this.value);
+        break;
+        default :
+        break;
+      }
+    },
+    changeSelected : function(oldValue , value) {
+      var oldSelected = demo.$("#"+this.items[oldValue]);
+      var newSelected = demo.$("#"+this.items[value]);
+      this.onFocus(oldValue , value);
+    },
+    onFocus : function(oldValue , value) {
+      demo.$("#"+this.items[value]).focus();
+      this.changeStyle(oldValue , value);
+    }
+  }
+
+  document.addEventListener("keydown" , function(event) {
+    switch (event.keyCode) {
+      case 13 :
+        if(demo.value == 1) {
+          demo.url = "http://www.baidu.com/";
+        } else if (demo.value == 2) {
+          demo.url = "http://www.qq.com/";
+        } else if (demo.value == 3) {
+          demo.url = "http://www.w3school.com.cn/";
+        }
+        window.location.href = demo.url;
+      break;
+    }
+    demo.changeValue(event.keyCode);
+  })
+
+  document.addEventListener("DOMContentLoaded" , function() {
+    demo.initialize();
+  });
+</script>
+</html>

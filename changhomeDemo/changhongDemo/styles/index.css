@@ -1,0 +1,403 @@
+body{
+  background:url(../images/bg.jpg);
+  margin:0;
+  padding:0;
+}
+.active{
+  box-shadow: 0 0 0 4px rgb(0,228,250)
+}
+#container{
+  position:fixed;
+}
+#lineContainer{
+  position: absolute;
+  left: 0vw;
+  top: 14vh;
+  width: 150vw;
+  height: 36vh;
+}
+#lineContainer1{
+  position: absolute;
+  left: 0vw;
+  top: 57.5vh;
+  width: 150vw;
+  height: 36vh;
+}
+#lineContainer2{
+  position: absolute;
+  left: 0vw;
+  top: 101vh;
+  width: 150vw;
+  height: 36vh;
+}
+#lineContainer3{
+  position: absolute;
+  left: 0vw;
+  top: 144.5vh;
+  width: 150vw;
+  height: 36vh;
+}
+#lineContainer4{
+  position: absolute;
+  left: 0vw;
+  top: 188vh;
+  width: 150vw;
+  height: 36vh;
+}
+#lineContainer5{
+  position: absolute;
+  left: 0vw;
+  top: 231.5vh;
+  width: 150vw;
+  height: 36vh;
+}
+.firstLineItems{
+  position: absolute;
+  top: 0vh;
+  width: 25vw;
+  height: 25vh;
+}
+.firstLineItems span{
+  position: absolute;
+  top: 20vh;
+  left: 10vw;
+  color:white;
+}
+#firstLineItem1{
+  left:7vw;
+  background-image:url(../images/opera.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-color:rgb(72, 152, 45);
+}
+#firstLineItem2{
+  left:34.7vw;
+  background-image:url(../images/opera.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-color:rgb(72, 152, 45);
+}
+#firstLineItem3{
+  left:62.5vw;
+  background-image:url(../images/24.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+}
+#firstLineItem4{
+  left:90.2vw;
+  background-image:url(../images/37.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+}
+#firstLineItem5{
+  left:118vw;
+  background-image:url(../images/58.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+}
+#firstLineItem6{
+  left:145.7vw;
+  background-image:url(../images/89.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+}
+.secondLineItems{
+  position: absolute;
+  top: 0vh;
+  width: 25vw;
+  height: 25vh;
+}
+.secondLineItems span{
+  position: absolute;
+  top: 20vh;
+  left: 10vw;
+  color:white;
+}
+#secondLineItem{
+  left: 7vw;
+  background-image:url(../images/youtube.png);
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+}
+#secondLineItem1{
+  left:34.7vw;
+}
+#secondLineItem2{
+  left:62.5vw;
+}
+#secondLineItem3{
+  left:90.2vw;
+}
+#secondLineItem4{
+  left:118vw;
+}
+#secondLineItem5{
+  left:145.7vw;
+}
+#secondLineItem6{
+  left:173.4vw;
+}
+.thirdLineItems{
+  position: absolute;
+  top: 0vh;
+  width: 25vw;
+  height: 25vh;
+}
+.thirdLineItems span{
+  position: absolute;
+  top: 20vh;
+  left: 10vw;
+  color:white;
+}
+#thirdLineItem1{
+  left:7vw;
+  background-image:url(../images/103.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+}
+#thirdLineItem2{
+  left:34.7vw;
+  background-image:url(../images/589.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+}
+#thirdLineItem3{
+  left:62.5vw;
+  background-image:url(../images/62.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+}
+#thirdLineItem4{
+  left:90.2vw;
+  background-image:url(../images/246.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+}
+#thirdLineItem5{
+  left:118vw;
+  background-image:url(../images/138.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+}
+#thirdLineItem6{
+  left:145.7vw;
+  background-image:url(../images/161.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+}
+.forthLineItems{
+  position: absolute;
+  top: 0vh;
+  width: 25vw;
+  height: 25vh;
+}
+.forthLineItems span{
+  position: absolute;
+  top: 20vh;
+  left: 11.5vw;
+}
+.imageItems{
+  position: absolute;
+  top: 0vh;
+  width: 25vw;
+  height: 25vh;
+}
+#forthLineItem1{
+  left:7vw;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-color:rgb(138, 218, 255);
+  opacity:0.2;
+}
+#imageItems1{
+  left:7vw;
+  background:url(../images/inputs-dtv.png) center no-repeat;
+  opacity:1;
+}
+#forthLineItem2{
+  left:34.7vw;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-color:rgb(138, 218, 255);
+  opacity:0.2;
+}
+#imageItems2{
+  left:34.7vw;
+  background:url(../images/inputs-dtv.png) center no-repeat;
+  opacity:1;
+}
+#forthLineItem3{
+  left:62.5vw;
+  background-image:url(../images/inputs-av.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-color:rgb(138, 218, 255);
+  opacity:0.2;
+}
+#imageItems3{
+  left:62.5vw;
+  background:url(../images/inputs-av.png) center no-repeat;
+  opacity:1;
+}
+#forthLineItem4{
+  left:90.2vw;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-color:rgb(138, 218, 255);
+  opacity:0.2;
+}
+#imageItems4{
+  left:90.2vw;
+  background:url(../images/inputs-dtv.png) center no-repeat;
+  opacity:1;
+}
+#forthLineItem5{
+  left:118vw;
+  background-image:url(../images/inputs-vga.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-color:rgb(138, 218, 255);
+  opacity:0.2;
+}
+#imageItems5{
+  left:118vw;
+  background:url(../images/inputs-vga.png) center no-repeat;
+  opacity:1;
+}
+#forthLineItem6{
+  left:145.7vw;
+  background-image:url(../images/inputs-HDMI.png);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-color:rgb(138, 218, 255);
+  opacity:0.2;
+}
+#imageItems6{
+  left:145.7vw;
+  background:url(../images/inputs-HDMI.png) center no-repeat;
+  opacity:1;
+}
+.fifthLineItems{
+  position: absolute;
+  top: 0vh;
+  width: 25vw;
+  height: 25vh;
+}
+.fifthLineItems span{
+  position: absolute;
+  top: 20vh;
+  left: 10.5vw;
+  color:white;
+}
+#fifthLineItem1{
+  left:7vw;
+  background-color:rgb(75, 75, 223);
+  background-image:url(../images/media-all.png);
+  background-repeat:no-repeat;
+  background-position:center;
+}
+#fifthLineItem2{
+  left:34.7vw;
+  background-color:rgb(193, 55, 133);
+  background-image:url(../images/media-video.png);
+  background-repeat:no-repeat;
+  background-position:center;
+}
+#fifthLineItem3{
+  left:62.5vw;
+  background-color:rgb(30, 180, 153);
+  background-image:url(../images/media-picture.png);
+  background-repeat:no-repeat;
+  background-position:center;
+}
+#fifthLineItem4{
+  left:90.2vw;
+  background-color:rgb(99, 73, 193);
+  background-image:url(../images/media-music.png);
+  background-repeat:no-repeat;
+  background-position:center;
+}
+#fifthLineItem5{
+  left:118vw;
+  background-color:rgb(30, 180, 153);
+  background-image:url(../images/media-picture.png);
+  background-repeat:no-repeat;
+  background-position:center;
+}
+#fifthLineItem6{
+  left:145.7vw;
+  background-color:rgb(99, 73, 193);
+  background-image:url(../images/media-music.png);
+  background-repeat:no-repeat;
+  background-position:center;
+}
+.sixthLineItems{
+  position: absolute;
+  top: 0vh;
+  width: 25vw;
+  height: 25vh;
+}
+.sixthLineItems span{
+  position: absolute;
+  top: 20vh;
+  left: 10vw;
+  color:white;
+}
+#sixthLineItem1{
+  left:7vw;
+  background-color:rgb(157, 61, 193);
+  background-image:url(../images/settings-image.png);
+  background-repeat:no-repeat;
+  background-position:center;
+}
+#sixthLineItem2{
+  left:34.7vw;
+  background-color:rgb(31, 146, 212);
+  background-image:url(../images/settings-sound.png);
+  background-repeat:no-repeat;
+  background-position:center;
+}
+#sixthLineItem3{
+  left:62.5vw;
+  background-color:rgb(30, 180, 153);
+  background-image:url(../images/settings-system.png);
+  background-repeat:no-repeat;
+  background-position:center;
+}
+#sixthLineItem4{
+  left:90.2vw;
+  background-color:rgb(240, 130, 0);
+  background-image:url(../images/settings-network.png);
+  background-repeat:no-repeat;
+  background-position:center;
+}
+#sixthLineItem5{
+  left:118vw;
+  background-color:rgb(72, 152, 45);
+  background-image:url(../images/settings-channel.png);
+  background-repeat:no-repeat;
+  background-position:center;
+}
+#sixthLineItem6{
+  left:145.7vw;
+  background-color:rgb(67, 17, 147);
+  background-image:url(../images/settings-Support.png);
+  background-repeat:no-repeat;
+  background-position:center;
+}
+#videoTag{
+  width:100vw;
+  height:100vh;
+  z-index:100;
+  position:absolute;
+}

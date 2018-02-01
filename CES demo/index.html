@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="styles/main.css" />
+</head>
+<body>
+  <div id="container" class="container">
+    <div id="LOGO"></div>
+    <div id="demo">CES Demo</div>
+    <div id="progressBar"></div>
+    <div id="activeBar"></div>
+    <div id="Turntable">
+      <div id="rotate"></div>
+    </div>
+  </div>
+  <script>
+    var cesComponent = {
+      selected: 0 ,
+      oldSelected:0,
+      container: document.querySelector("#container"),
+      items:['Portal','YouTube','ZDF','ARD','WebUI','WebGL','CSS3'],
+      information:['TV Portal','YouTube TV 2018','HbbTV ZDF','HbbTV ARD','Sraf Link HTML5 WebUI',
+      '3D WebGL Demo','CSS3 animation'],
+      position:[[1.7,28],[6.6,12.4],[20.6,7.2],[29.2,20.4],[28.2,42],[18.2,52.6],[6.6,48.6]],
+      position1:[[6.6,12.4],[15.6,7.2],[27.2,13.4],[30.2,30],[26.2,47.6],[15.6,53.4],[5.1,45.6],[1.3,29]],
+      url:['http://www.taobao.com','http://www.youku.com',
+      'http://www.google.com','http://www.yahoo.com','http://www.w3school.com','http://webglsamples.org/dynamic-cubemap/dynamic-cubemap.html','http://www.youtube.tv','http://www.hao123.com'],
+      element: [document.querySelector("#progressBar"), document.querySelector("#Turntable")],
+      initialize: function() {
+        this.getStorage();
+        this.createElement();
+        if(this.selected > 0) {
+          document.querySelectorAll(".items")[this.selected%this.items.length].style.color = "white";
+          this.element[0].innerHTML = this.items[this.selected%this.items.length];
+        }else if (this.selected == 0) {
+          document.querySelectorAll(".items")[0].style.color = "white";
+          this.element[0].innerHTML = this.items[this.selected];
+        }else if(this.selected < 0 && (-this.selected)%this.items.length != 0) {
+         document.querySelectorAll(".items")[this.items.length - ((-this.selected)%this.items.length)].style.color = "white";
+         this.element[0].innerHTML = this.items[this.items.length - ((-this.selected)%this.items.length)];
+        }else if(this.selected < 0 && (-this.selected)%this.items.length == 0) {
+          document.querySelectorAll(".items")[0].style.color = "white";
+          this.element[0].innerHTML = this.items[0];
+        }
+        this.ratate();
+      },
+      getStorage:function() {
+        if(localStorage.mySelected != undefined){
+          this.selected = localStorage.mySelected;
+        }else {
+          this.selected = 0;
+        }
+      },
+      createElement: function(){
+        var that = this;
+        for(var i = 0 ; i < this.items.length ; i++) {
+          var items = document.createElement('div');
+          items.id = this.items[i];
+          if(this.items[i] == 'OpenBrowser') {
+            items.innerHTML = '&nbspOpen<br>Browser';
+          }else {
+            items.innerHTML = this.items[i];
+          }
+          items.classList.add("items");
+          items.style.color = "#143091";
+          items.style.fontFamily = 'Pantone';
+          items.style.fontSize = "1.5vw";
+          items.style.fontWeight = "bold";
+          that.element[1].appendChild(items);
+        };
+        this.refreshPosition();
+      },
+      refreshText: function() {
+        if(this.selected >= 0) {
+          if(this.items[this.selected % this.items.length] == 'WebUI') {
+            this.element[0].style.fontSize = '2vw'
+          }else {
+            this.element[0].style.fontSize = '3vw'
+          }
+          this.element[0].innerHTML = this.information[this.selected % this.items.length];
+          if(this.oldSelected == -1) {
+            document.querySelector("#"+this.items[this.items.length + this.oldSelected]+"").style.color = "#143091";
+          }else {
+            document.querySelector("#"+this.items[this.oldSelected % this.items.length]+"").style.color = "#143091";
+          }
+          document.querySelector("#"+this.items[this.selected % this.items.length]+"").style.color = "white";
+        } else {
+          if ((-this.selected)%this.items.length == 0) {
+            if(this.items[((-this.selected)%this.items.length)] == 'WebUI') {
+              this.element[0].style.fontSize = '2vw'
+            }else {
+              this.element[0].style.fontSize = '3vw'
+            }
+            this.element[0].innerHTML = this.information[((-this.selected)%this.items.length)];
+            document.querySelector("#"+this.items[((-this.selected)%this.items.length)]+"").style.color = "white";
+          }else {
+            if(this.items[this.items.length - ((-this.selected)%this.items.length)] == 'WebUI') {
+              this.element[0].style.fontSize = '2vw'
+            }else {
+              this.element[0].style.fontSize = '3vw'
+            }
+            this.element[0].innerHTML = this.information[this.items.length - ((-this.selected)%this.items.length)];
+            document.querySelector("#"+this.items[this.items.length - ((-this.selected)%this.items.length)]+"").style.color = "white";
+          }
+          if((-this.oldSelected)%this.items.length == 0) {
+            document.querySelector("#"+this.items[(-this.oldSelected)%this.items.length]+"").style.color = "#143091"
+          }else {
+            document.querySelector("#"+this.items[this.items.length - ((-this.oldSelected)%this.items.length)]+"").style.color = "#143091"
+          }
+        }
+      },
+      refreshPosition:function() {
+        if(this.items.length == 7) {
+          for(var i = 0 ; i < this.items.length ; i++) {
+            document.querySelectorAll(".items")[i].style.transform = "translate("+this.position[i][0]+"vw , "+this.position[i][1]+"vh)"
+          }
+        } else {
+          for(var i = 0 ; i < this.items.length ; i++) {
+            document.querySelectorAll(".items")[i].style.transform = "translate("+this.position1[i][0]+"vw , "+this.position1[i][1]+"vh)";
+          }
+        }
+      },
+      refreshElement: function() {
+        if(this.items.length == 7){
+          this.items.unshift("html5test");
+          this.information.unshift("<div style='background-image:url(images/html5test.png);width:17vw;\
+            height:10.5vh;background-repeat: no-repeat;background-size: 100% 100%;margin-left:4vw;'></div>");
+          var newItem = document.createElement('div');
+          newItem.id = "html5test";
+          newItem.classList.add("items");
+          newItem.innerHTML = "html5test";
+          newItem.style.color = "#143091";
+          newItem.style.fontFamily = 'Pantone';
+          newItem.style.fontSize = "1.5vw";
+          newItem.style.fontWeight = "bold";
+          this.element[1].appendChild(newItem);
+        }else {
+          this.items.shift("html5test");
+          this.information.shift("<div style='background:url()'>123</div>");
+          this.element[1].removeChild(document.querySelector("#html5test"));
+        }
+        this.refreshPosition();
+        this.selected = this.oldSelected = 0;
+        this.items.forEach(function(item){
+          document.querySelector("#"+item+"").style.color = "#143091";
+        })
+      },
+      ratate: function(){
+        this.element[1].querySelector("#rotate").style.transformOrigin = "53% 50%";
+        this.element[1].querySelector("#rotate").style.transform = "rotate("+this.selected * (360/this.items.length) +"deg)";
+        this.element[1].querySelector("#rotate").style.transition = "transform 0.3s";
+      },
+      enterUrl:function() {
+        if(this.selected > 0) {
+          switch (this.items[this.selected%this.items.length]) {
+            case 'Portal':
+              window.location.href = this.url[0];
+            break;
+            case 'YouTube':
+              window.location.href = this.url[1];
+            break;
+            case 'ZDF':
+              window.location.href = this.url[2];
+            break;
+            case 'ARD':
+              window.location.href = this.url[3];
+            break;
+            case 'WebUI':
+              window.location.href = this.url[4];
+            break;
+            case 'WebGL':
+              window.location.href = this.url[5];
+            break;
+            case 'CSS3':
+              window.location.href = this.url[6];
+            break;
+            case 'html5test':
+              window.location.href = this.url[7];
+            break;
+          }
+        } else if (this.selected == 0) {
+          window.location.href = this.url[0];
+        }else if(this.selected < 0 && (-this.selected)%this.items.length != 0){
+          switch (this.items[this.items.length - ((-this.selected)%this.items.length)]) {
+            case 'Portal':
+              window.location.href = this.url[0];
+            break;
+            case 'YouTube':
+              window.location.href = this.url[1];
+            break;
+            case 'ZDF':
+              window.location.href = this.url[2];
+            break;
+            case 'ARD':
+              window.location.href = this.url[3];
+            break;
+            case 'WebUI':
+              window.location.href = this.url[4];
+            break;
+            case 'WebGL':
+              window.location.href = this.url[5];
+            break;
+            case 'CSS3':
+              window.location.href = this.url[6];
+            break;
+            case 'html5test':
+              window.location.href = this.url[7];
+            break;
+          }
+        }else if(this.selected < 0 && (-this.selected)%this.items.length == 0) {
+          window.location.href = this.url[0];
+        }
+      },
+      activeAnimation:function(){
+        document.querySelector("#activeBar").classList.add('active');
+        window.setTimeout(function() {
+          document.querySelector("#activeBar").classList.remove('active');
+        },200);
+      },
+      setStorage:function() {
+        localStorage.mySelected = this.selected;
+      },
+      onKeyDown: function(event) {
+        switch(event.keyCode) {
+          case 96:
+            this.refreshElement();
+            this.ratate();
+            this.refreshText();
+            this.activeAnimation();
+          break;
+          case 13:
+            this.enterUrl();
+            this.setStorage();
+          break;
+          case 38:
+            this.oldSelected = this.selected;
+            this.selected++;
+            this.ratate();
+            this.refreshText();
+            this.activeAnimation();
+          break;
+          case 40:
+            this.oldSelected = this.selected;
+            this.selected--;
+            this.ratate();
+            this.refreshText();
+            this.activeAnimation();
+          break;
+          default:
+          break;
+        }
+      },
+    };
+    document.addEventListener("DOMContentLoaded" , function() {
+      cesComponent.initialize();
+    });
+    document.addEventListener('keydown' , function(event) {
+      cesComponent.onKeyDown(event);
+    });
+  </script>
+</body>
+</html>

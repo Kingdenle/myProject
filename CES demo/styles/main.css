@@ -1,0 +1,84 @@
+*{
+  margin:0;
+  padding:0;
+}
+@font-face {
+  font-family: Pantone;
+  src: url('../font/Panton.otf');
+}
+.container{
+  width:100vw;
+  height:100vh;
+  background-image:url(../images/background.png);
+  background-repeat:no-repeat;
+  background-size: 100%;
+}
+#LOGO{
+  width:21.5vw;
+  height:10.6vh;
+  position: absolute;
+  top: 6vh;
+  left: 4.4vw;
+  background-image:url(../images/LOGO.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+#demo{
+  font-family: Pantone;
+  font-size:3vw;
+  color:#143091;
+  position: absolute;
+  top: 8.5vh;
+  left: 27vw;
+  font-weight: bold;
+}
+#progressBar{
+  background-image:url(../images/progressBar.png);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  width:29.4vw;
+  font-family: Pantone;
+  font-size:3vw;
+  color:white;
+  height:9.3vh;
+  position: absolute;
+  top: 47vh;
+  left: 8.75vw;
+  line-height: 9.3vh;
+  padding-left: 4.5vw;
+}
+#activeBar{
+  width:5.5vw;
+  height:9.6vh;
+  background:url(../images/activeBar.png);
+  background-repeat:no-repeat;
+  background-size:100%;
+  top: 46.8vh;
+  left: 38vw;
+  position: absolute;
+}
+.active{
+  transform: translate(-30vw);
+  transform-origin: 100% 50%;
+  transition: transform 0.2s;
+}
+#Turntable{
+  width: 36vw;
+  height: 64vh;
+  position: absolute;
+  left: 52.8vw;
+  top: 18.5vh;
+}
+.items{
+  position:absolute;
+}
+#rotate{
+  background-image:url(../images/scale.png);
+  background-repeat:no-repeat;
+  background-size:100%;
+  width:18.5vw;
+  height:31vh;
+  position: absolute;
+  top: 16vh;
+  left: 8.2vw;
+}
